@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.tiendungpham.archsamples.ui.welcome.WelcomeFragment"
+        android:label="WelcomeFragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_newWordFragment"
+            app:destination="@id/newWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.tiendungpham.archsamples.ui.game.GameFragment"
+        android:label="GameFragment">
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment"
+            app:popUpTo="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.tiendungpham.archsamples.ui.score.ScoreFragment"
+        android:label="ScoreFragment" />
+    <fragment
+        android:id="@+id/newWordFragment"
+        android:name="com.tiendungpham.newword.ui.NewWordFragment"
+        android:label="NewWordFragment"
+        app:moduleName="newword" />
+</navigation>

@@ -1,20 +1,20 @@
-package com.tiendungpham.archsamples.ui.score
+package com.tiendungpham.newword.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.tiendungpham.archsamples.databinding.FragmentScoreBinding
+import com.tiendungpham.newword.databinding.FragmentNewWordBinding
 
-class ScoreFragment : Fragment() {
-    lateinit var binding: FragmentScoreBinding
+class NewWordFragment : Fragment() {
+    lateinit var binding: FragmentNewWordBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentScoreBinding.inflate(inflater, container, false)
+        binding = FragmentNewWordBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
