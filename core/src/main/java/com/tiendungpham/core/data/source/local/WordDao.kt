@@ -16,5 +16,8 @@ interface WordDao {
     fun deleteWord(word: Word)
 
     @Query("SELECT * FROM word")
-    fun getAllWords(): Flow<List<Word>>
+    fun findAllWord(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word")
+    fun findAllWordAsList(): List<Word>
 }

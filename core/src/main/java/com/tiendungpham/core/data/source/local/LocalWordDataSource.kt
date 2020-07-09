@@ -20,5 +20,9 @@ class LocalWordDataSource(
         wordDao.deleteWord(word)
     }
 
-    override fun getAllWord(): Flow<List<Word>> = wordDao.getAllWords().flowOn(ioDispatcher)
+    override fun findAllWord(): Flow<List<Word>> = wordDao.findAllWord().flowOn(ioDispatcher)
+
+    override suspend fun findAllWordAsList(): List<Word> = withContext(ioDispatcher) {
+        return@withContext wordDao.findAllWordAsList()
+    }
 }

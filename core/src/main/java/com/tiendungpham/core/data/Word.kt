@@ -9,4 +9,3 @@ class Word(
     val id: String,
     val title: String
 )
-

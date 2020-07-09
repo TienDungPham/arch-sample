@@ -27,5 +27,8 @@ class ScoreFragment : Fragment() {
         binding.stopBtn.setOnClickListener {
             findNavController().navigate(R.id.action_scoreFragment_to_welcomeFragment)
         }
+        arguments?.apply {
+            binding.score.text = "Your score: ${getInt("totalScore")}"
+        }
     }
 }

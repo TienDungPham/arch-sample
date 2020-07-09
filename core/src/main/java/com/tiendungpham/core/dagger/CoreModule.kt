@@ -4,6 +4,7 @@ import android.content.Context
 import com.tiendungpham.core.data.source.WordRepository
 import com.tiendungpham.core.data.source.local.LocalWordDataSource
 import com.tiendungpham.core.data.source.local.WordDatabase
+import com.tiendungpham.core.data.source.remote.RemoteWordDataSource
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
@@ -35,10 +36,19 @@ abstract class CoreModule {
 
         @Provides
         @Singleton
+        fun provideRemoteWordDataSource(
+            ioDispatcher: CoroutineDispatcher
+        ): RemoteWordDataSource {
+            return RemoteWordDataSource(ioDispatcher)
+        }
+
+        @Provides
+        @Singleton
         fun provideWordRepository(
-            localWordDataSource: LocalWordDataSource
+            localWordDataSource: LocalWordDataSource,
+            remoteWordDataSource: RemoteWordDataSource
         ): WordRepository {
-            return WordRepository(localWordDataSource)
+            return WordRepository(localWordDataSource, remoteWordDataSource)
         }
     }
 }
