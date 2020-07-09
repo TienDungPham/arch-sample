@@ -8,25 +8,19 @@ import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Singleton
 
 @Module
 abstract class CoreModule {
 
     companion object {
-        @JvmStatic
-        @Singleton
         @Provides
         fun provideDatabase(context: Context): WordDatabase {
             return WordDatabase.create(context)
         }
 
-        @JvmStatic
-        @Singleton
         @Provides
         fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
 
-        @JvmStatic
         @Provides
         fun provideWordDataSource(
             wordDatabase: WordDatabase,
