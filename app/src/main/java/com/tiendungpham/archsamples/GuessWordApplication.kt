@@ -8,7 +8,7 @@ import com.tiendungpham.core.dagger.DaggerCoreComponent
 class GuessWordApplication : Application() {
 
     val coreComponent: CoreComponent by lazy {
-        DaggerCoreComponent.builder().bindContext(this).build()
+        DaggerCoreComponent.builder().setContext(this).build()
     }
 
     companion object {

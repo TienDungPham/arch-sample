@@ -5,13 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.tiendungpham.archsamples.GuessWordApplication
 import com.tiendungpham.archsamples.R
+import com.tiendungpham.archsamples.dagger.DaggerAppComponent
 import com.tiendungpham.archsamples.databinding.FragmentGameBinding
+import javax.inject.Inject
 
 class GameFragment : Fragment() {
     lateinit var binding: FragmentGameBinding
+
+    @Inject
+    lateinit var gameViewModelFactory: GameViewModelFactory
+
+    private val viewModel by viewModels<GameViewModel> {
+        gameViewModelFactory
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DaggerAppComponent.builder()
+            .setCoreComponent(GuessWordApplication.coreComponent(this.requireContext()))
+            .build()
+            .injectGame(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
