@@ -24,9 +24,15 @@ class ScoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.toolbar.setupWithNavController(findNavController())
+
+        binding.playAgainBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_scoreFragment_to_gameFragment)
+        }
+
         binding.stopBtn.setOnClickListener {
             findNavController().navigate(R.id.action_scoreFragment_to_welcomeFragment)
         }
+
         arguments?.apply {
             binding.score.text = "Your score: ${getInt("totalScore")}"
         }

@@ -20,12 +20,12 @@ class WordRepository(
     }
 
     fun getAllWord(): Flow<List<Word>> {
-        //return localWordDataSource.findAllWord()
-        return remoteWordDataSource.findAllWord()
+        return localWordDataSource.findAllWord()
+        //return remoteWordDataSource.findAllWord()
     }
 
     suspend fun getAllWordAsList(): List<Word> {
-//        return localWordDataSource.findAllWordAsList()
-        return remoteWordDataSource.findAllWordAsList()
+        return localWordDataSource.findAllWordAsList()
+        //return remoteWordDataSource.findAllWordAsList()
     }
 }

@@ -57,7 +57,6 @@ class GameFragment : Fragment() {
             gameViewModel.onSkipWord()
         }
 
-        binding.word.text = "Loading!!!"
         gameViewModel.currentWord.observe(viewLifecycleOwner, Observer {
             binding.nextBtn.isEnabled = true
             binding.skipBtn.isEnabled = true
