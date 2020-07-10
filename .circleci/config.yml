@@ -2,7 +2,7 @@ version: 2.1
 executors:
   android-excutor:
     docker:
-      - image: ciclerci/android:api-29
+      - image: circleci/android:api-29
     working_directory: ~/guessword
     environment:
       JVM_OPTS: -Xmx3200m
