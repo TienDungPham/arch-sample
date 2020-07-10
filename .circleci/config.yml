@@ -10,7 +10,7 @@ executors:
 jobs:
   build:
     executor: android-excutor
-    step:
+    steps:
       - checkout
       - run:
           name: Download Dependencies
